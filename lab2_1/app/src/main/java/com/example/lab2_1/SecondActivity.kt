@@ -7,15 +7,14 @@ import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-
-class MainActivity : AppCompatActivity() {
+class SecondActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_second)
 
         findViewById<Button>(R.id.button)
             .setOnClickListener {
-                val intent = Intent(this, SecondActivity::class.java)
+                val intent = Intent(this, ThirdActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent)
             }
