@@ -131,8 +131,8 @@ class MainActivity : AppCompatActivity() {
                     try {
                         val item = parent.getItemAtPosition(position) as Valute
                         topSelection = item
-                        val money = bottomEditText.text.toString().toDouble()
-                        updateTopText(money)
+                        val money = topEditText.text.toString().toDouble()
+                        updateBottomText(money)
                     } catch (e: NumberFormatException){
                         topEditText.setText("")
                     }
