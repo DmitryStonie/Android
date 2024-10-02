@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_item_background"
-    xmlns:tools="http://schemas.android.com/tools"
     >
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -14,6 +13,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
         android:layout_marginStart="16dp"
+        android:src="@drawable/album_cover"
 
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -21,7 +21,6 @@
         app:layout_constraintEnd_toStartOf="@+id/text_layout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:src="@drawable/album_cover"
 
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSizeImage"
         />
