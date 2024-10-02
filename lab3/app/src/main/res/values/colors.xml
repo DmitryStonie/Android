@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background">#151617</color>
+    <color name="element_background">#262E2F</color>
+    <color name="play_button">#91D2D5</color>
+    <color name="main_element_headline">#E2E2E2</color>
+    <color name="main_element_supporting_text">#C3C7C7</color>
+    <color name="ad_element_overline">#91D2D5</color>
+    <color name="ad_element_headline">#E2E2E2</color>
+    <color name="ad_element_supporting_text">#C3C7C7</color>
+
 </resources>
