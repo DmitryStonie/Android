@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(private val items: List<ListItem>):
+class ItemAdapter(private var items: List<ListItem>):
     RecyclerView.Adapter<BaseViewHolder>(){
+    private var onClickListener: OnClickListener? = null
+
     override fun getItemViewType(position: Int): Int {
         return items[position].getListItemType()
     }
@@ -36,5 +38,20 @@ class ItemAdapter(private val items: List<ListItem>):
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         Log.d(TAG, "bind, position = " + position);
         holder.bind(items[position])
+        holder.itemView.setOnClickListener {
+            onClickListener?.onClick(position, items[position])
+        }
+    }
+
+    fun setData(items: List<ListItem>){
+        this.items = items
+    }
+
+    fun setOnClickListener(listener: OnClickListener?) {
+        this.onClickListener = listener
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: ListItem)
     }
 }

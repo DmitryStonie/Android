@@ -52,6 +52,7 @@
             android:textSize="16sp"
             android:textColor="@color/main_element_headline"
             android:fontFamily="@font/roboto_500"
+            android:letterSpacing="0.015"
 
             app:layout_constraintBottom_toTopOf="@+id/supporting_text"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -65,6 +66,8 @@
             android:textColor="@color/main_element_supporting_text"
             android:text="@string/kali_uchis"
             android:fontFamily="@font/roboto_400"
+            android:letterSpacing="0.025"
+
 
 
 
@@ -93,9 +96,9 @@
         >
     <ImageView
         android:id="@+id/playPauseButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="10dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
         android:src="@drawable/baseline_play_circle_24"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
