@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_item_background"
+    >
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/album_cover"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/album_cover"
+
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSizeImage"
+        />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/text_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+
+        app:layout_constraintTop_toTopOf="@+id/album_cover"
+        app:layout_constraintBottom_toBottomOf="@+id/album_cover"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintStart_toEndOf="@+id/album_cover"
+        app:layout_constraintEnd_toStartOf="@+id/play_layout"
+        >
+
+        <TextView
+            android:id="@+id/headline"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="@string/no_hay_ley"
+            android:textSize="16sp"
+            android:textColor="@color/main_element_headline"
+            android:fontFamily="@font/roboto_500"
+            android:letterSpacing="0.015"
+
+            app:layout_constraintBottom_toTopOf="@+id/supporting_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/supporting_text"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="14sp"
+            android:textColor="@color/main_element_supporting_text"
+            android:text="@string/kali_uchis"
+            android:fontFamily="@font/roboto_400"
+            android:letterSpacing="0.025"
+
+
+
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headline" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/play_layout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="16dp"
+
+        app:layout_constraintTop_toTopOf="@+id/album_cover"
+        app:layout_constraintBottom_toBottomOf="@+id/album_cover"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_weight="1"
+
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/text_layout"
+        >
+    <ImageView
+        android:id="@+id/playPauseButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/baseline_play_circle_filled_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
