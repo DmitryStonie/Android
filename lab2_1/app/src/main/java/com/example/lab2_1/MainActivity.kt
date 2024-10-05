@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button)
             .setOnClickListener {
                 val intent = Intent(this, SecondActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent)
             }
     }
