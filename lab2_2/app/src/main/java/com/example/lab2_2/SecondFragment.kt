@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.example.lab2_2.Constants.THIRD_FRAGMENT
 
 
 class SecondFragment : Fragment(){
@@ -21,7 +22,7 @@ class SecondFragment : Fragment(){
                 transaction.commit {
                     replace(R.id.fragment_container_view, ThirdFragment())
                     setReorderingAllowed(true)
-                    addToBackStack("ThirdFragment")
+                    addToBackStack(THIRD_FRAGMENT)
                 }
             }
         return view

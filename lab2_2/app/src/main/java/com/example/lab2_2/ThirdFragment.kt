@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
+import com.example.lab2_2.Constants.SECOND_FRAGMENT
 
 
 class ThirdFragment : Fragment(){
@@ -19,7 +20,7 @@ class ThirdFragment : Fragment(){
         view.findViewById<Button>(R.id.button)
             .setOnClickListener {
                 val transaction = parentFragmentManager
-                transaction.popBackStack("SecondFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                transaction.popBackStack(SECOND_FRAGMENT, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 transaction.commit{
                     add(R.id.fragment_container_view, FirstFragment())
                     setReorderingAllowed(true)
