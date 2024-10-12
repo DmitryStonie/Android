@@ -7,24 +7,29 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import com.example.lab2_2.Constants.SECOND_FRAGMENT
+import com.example.lab2_2.SecondFragment.Companion.THIRD_FRAGMENT
 
 
-class FirstFragment : Fragment(){
+class FirstFragment : Fragment() {
+    companion object {
+        const val SECOND_FRAGMENT = "SecondFragment"
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_first, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<Button>(R.id.button)
             .setOnClickListener {
-                val transaction = parentFragmentManager
-                transaction.commit {
-                    replace(R.id.fragment_container_view, SecondFragment())
-                    setReorderingAllowed(true)
+                val fragmentManager = parentFragmentManager
+                fragmentManager.commit {
+                    add(R.id.fragment_container_view, SecondFragment())
                     addToBackStack(SECOND_FRAGMENT)
                 }
             }
-        return view
     }
 }
