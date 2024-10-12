@@ -1,6 +1,6 @@
 package com.example.lab3
 
-interface ListItem {
-    enum class Type(value: Int) {TypeSong(0), TypeAd(1) }
-    fun getListItemType(): Int
+sealed interface ListItem {
+    enum class Type(val value: Int) {Song(0), Ad(1) }
+    val type: Int
 }

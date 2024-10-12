@@ -1,10 +1,10 @@
 package com.example.lab3
+import java.io.Serializable
 
 data class Song(
     val name: String,
     val description: String,
-): ListItem, java.io.Serializable {
-    override fun getListItemType(): Int {
-        return ListItem.Type.TypeSong.ordinal
-    }
+): ListItem, Serializable {
+    override val type: Int
+        get() = ListItem.Type.Song.value
 }

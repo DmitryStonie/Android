@@ -34,7 +34,7 @@ class ProductDiffUtilCallback(private val oldList: List<ListItem>,
         val newItem: ListItem = newList[newItemPosition]
         return when {
             oldItem is Advertisement && newItem is Advertisement -> {
-                oldItem.title == newItem.title && oldItem.type == newItem.type && oldItem.description == newItem.description
+                oldItem.title == newItem.title && oldItem.adType == newItem.adType && oldItem.description == newItem.description
             }
             oldItem is Song && newItem is Song -> {
                 oldItem.name == newItem.name && oldItem.description == newItem.description

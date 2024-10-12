@@ -15,6 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        const val SONG_SCREEN = "song_screen"
+        const val AD_SCREEN = "ad_screen"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,12 +40,12 @@ class MainActivity : AppCompatActivity() {
                 when (val element = elements[position]) {
                     is Song -> {
                         val intent = Intent(this@MainActivity, SongActivity::class.java)
-                        intent.putExtra("song_screen", element)
+                        intent.putExtra(SONG_SCREEN, element)
                         startActivity(intent)
                     }
                     is Advertisement -> {
                         val intent = Intent(this@MainActivity, AdActivity::class.java)
-                        intent.putExtra("ad_screen", element)
+                        intent.putExtra(AD_SCREEN, element)
                         startActivity(intent)
                     }
                     else -> {
@@ -65,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             val productDiffUtilCallback = ProductDiffUtilCallback(elements, newElements);
             val productDiffResult = DiffUtil.calculateDiff(productDiffUtilCallback);
             productDiffResult.dispatchUpdatesTo(recyclerView.adapter as ItemAdapter)
+            (recyclerView.adapter as ItemAdapter).notifyItemRangeChanged(0, newElements.size)
             elements = newElements
         }, 5000)
     }

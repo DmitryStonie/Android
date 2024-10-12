@@ -9,14 +9,10 @@ class AdActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ad_activity)
 
-        var advertisement:Advertisement?=null
-        if(intent.hasExtra("ad_screen")){
-            advertisement = intent.getSerializableExtra("ad_screen") as Advertisement
-        }
-        if(advertisement!=null){
-            findViewById<TextView>(R.id.overline).text = advertisement.type
-            findViewById<TextView>(R.id.headline).text = advertisement.title
-            findViewById<TextView>(R.id.supporting_text).text = advertisement.description
+        (intent.getSerializableExtra(MainActivity.SONG_SCREEN) as Advertisement?)?.let {
+            findViewById<TextView>(R.id.overline).text = it.adType
+            findViewById<TextView>(R.id.headline).text = it.title
+            findViewById<TextView>(R.id.supporting_text).text = it.description
         }
     }
 }

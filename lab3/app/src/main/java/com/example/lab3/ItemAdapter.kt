@@ -11,16 +11,16 @@ class ItemAdapter(private var items: List<ListItem>):
     private var onClickListener: OnClickListener? = null
 
     override fun getItemViewType(position: Int): Int {
-        return items[position].getListItemType()
+        return items[position].type
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
-            ListItem.Type.TypeAd.ordinal -> {
+            ListItem.Type.Ad.value -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.ad_item, parent, false)
                 return AdViewHolder(view)
             }
-            ListItem.Type.TypeSong.ordinal -> {
+            ListItem.Type.Song.value -> {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.main_item, parent, false)
                 return SongViewHolder(view)
             }
@@ -37,7 +37,12 @@ class ItemAdapter(private var items: List<ListItem>):
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         Log.d(TAG, "bind, position = " + position);
-        holder.bind(items[position])
+        if( holder is SongViewHolder){
+            holder.bind(items[position] as Song)
+        }
+        else if( holder is AdViewHolder){
+            holder.bind(items[position] as Advertisement)
+        }
         holder.itemView.setOnClickListener {
             onClickListener?.onClick(position, items[position])
         }

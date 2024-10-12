@@ -1,11 +1,11 @@
 package com.example.lab3
+import java.io.Serializable
 
 data class Advertisement(
-    val type: String,
+    val adType: String,
     val title: String,
     val description: String
-): ListItem, java.io.Serializable {
-    override fun getListItemType(): Int {
-        return ListItem.Type.TypeAd.ordinal
-    }
+): ListItem, Serializable {
+    override val type: Int
+        get() = ListItem.Type.Ad.value
 }

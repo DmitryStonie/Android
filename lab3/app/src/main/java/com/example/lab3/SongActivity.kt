@@ -9,13 +9,9 @@ class SongActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.song_activity)
 
-        var song:Song?=null
-        if(intent.hasExtra("song_screen")){
-            song = intent.getSerializableExtra("song_screen") as Song
-        }
-        if(song!=null){
-            findViewById<TextView>(R.id.headline).text = song.name
-            findViewById<TextView>(R.id.supporting_text).text = song.description
+        (intent.getSerializableExtra(MainActivity.SONG_SCREEN) as Song?)?.let {
+            findViewById<TextView>(R.id.headline).text = it.name
+            findViewById<TextView>(R.id.supporting_text).text = it.description
         }
     }
 }

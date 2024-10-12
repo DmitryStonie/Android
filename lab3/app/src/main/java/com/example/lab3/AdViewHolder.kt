@@ -8,10 +8,9 @@ class AdViewHolder(itemView: View) : BaseViewHolder(itemView) {
     private val overline: TextView = itemView.findViewById(R.id.overline)
     private val supportingText: TextView = itemView.findViewById(R.id.supporting_text)
 
-    override fun bind(item: ListItem) {
-        val itemSong = item as Advertisement
-        headline.text = itemSong.title
-        overline.text = itemSong.type
-        supportingText.text = itemSong.description
+    fun bind(advertisement: Advertisement) {
+        headline.text = advertisement.title
+        overline.text = advertisement.adType
+        supportingText.text = advertisement.description
     }
 }
