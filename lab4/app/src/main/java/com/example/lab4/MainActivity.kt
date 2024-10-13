@@ -26,24 +26,26 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        val editText = findViewById<EditText>(R.id.editTextText)
+
+        val springAnim = editText.let { img ->
+            SpringAnimation(
+                img,
+                DynamicAnimation.TRANSLATION_X,
+                ANIMATION_FINAL_POSITION
+            ).apply {
+                spring.dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
+                spring.stiffness = SpringForce.STIFFNESS_LOW
+            }
+        }
+
         findViewById<Button>(R.id.button)
             .setOnClickListener {
-                val editText = findViewById<EditText>(R.id.editTextText)
                 if (editText.text.toString() in RIGHT_ANSWERS) {
                     val toast =
                         Toast.makeText(applicationContext, RIGHT_ANSWER_MESSAGE, Toast.LENGTH_SHORT)
                     toast.show()
                 } else {
-                    val springAnim = findViewById<View>(R.id.editTextText).let { img ->
-                        SpringAnimation(
-                            img,
-                            DynamicAnimation.TRANSLATION_X,
-                            ANIMATION_FINAL_POSITION
-                        ).apply {
-                            spring.dampingRatio = SpringForce.DAMPING_RATIO_HIGH_BOUNCY
-                            spring.stiffness = SpringForce.STIFFNESS_LOW
-                        }
-                    }
                     springAnim.setStartValue(ANIMATION_START_VALUE)
                     springAnim.start()
                     val toast =
