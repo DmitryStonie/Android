@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(private var items: List<ListItem>):
-    RecyclerView.Adapter<BaseViewHolder>(){
+class ItemAdapter(private var items: List<ListItem>) :
+    RecyclerView.Adapter<BaseViewHolder>() {
     private var onClickListener: OnClickListener? = null
 
     override fun getItemViewType(position: Int): Int {
@@ -17,15 +17,20 @@ class ItemAdapter(private var items: List<ListItem>):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
             ListItem.Type.Ad.value -> {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.ad_item, parent, false)
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.ad_item, parent, false)
                 return AdViewHolder(view)
             }
+
             ListItem.Type.Song.value -> {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.main_item, parent, false)
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.main_item, parent, false)
                 return SongViewHolder(view)
             }
+
             else -> {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.ad_item, parent, false)
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.ad_item, parent, false)
                 return AdViewHolder(view)
             }
         }
@@ -37,10 +42,9 @@ class ItemAdapter(private var items: List<ListItem>):
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         Log.d(TAG, "bind, position = " + position);
-        if( holder is SongViewHolder){
+        if (holder is SongViewHolder) {
             holder.bind(items[position] as Song)
-        }
-        else if( holder is AdViewHolder){
+        } else if (holder is AdViewHolder) {
             holder.bind(items[position] as Advertisement)
         }
         holder.itemView.setOnClickListener {
@@ -48,7 +52,7 @@ class ItemAdapter(private var items: List<ListItem>):
         }
     }
 
-    fun setData(items: List<ListItem>){
+    fun setData(items: List<ListItem>) {
         this.items = items
     }
 

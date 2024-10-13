@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         const val SONG_SCREEN = "song_screen"
         const val AD_SCREEN = "ad_screen"
     }
@@ -43,11 +43,13 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra(SONG_SCREEN, element)
                         startActivity(intent)
                     }
+
                     is Advertisement -> {
                         val intent = Intent(this@MainActivity, AdActivity::class.java)
                         intent.putExtra(AD_SCREEN, element)
                         startActivity(intent)
                     }
+
                     else -> {
                         val intent = Intent(this@MainActivity, SongActivity::class.java)
                         startActivity(intent)
@@ -62,9 +64,21 @@ class MainActivity : AppCompatActivity() {
         handler.postDelayed(Runnable {
             val newElements = ArrayList<ListItem>()
             newElements.add(elements[0])
-            newElements.add(Advertisement(getString(R.string.technology), getString(R.string.twitter_has_a_new_boss), getString(R.string.big_changes_are_coming)))
-            (1..< elements.size).forEach{ i -> newElements.add(elements[i])}
-            newElements.add(Advertisement(getString(R.string.technology), getString(R.string.twitter_has_a_new_boss), getString(R.string.big_changes_are_coming)))
+            newElements.add(
+                Advertisement(
+                    getString(R.string.technology),
+                    getString(R.string.twitter_has_a_new_boss),
+                    getString(R.string.big_changes_are_coming)
+                )
+            )
+            (1..<elements.size).forEach { i -> newElements.add(elements[i]) }
+            newElements.add(
+                Advertisement(
+                    getString(R.string.technology),
+                    getString(R.string.twitter_has_a_new_boss),
+                    getString(R.string.big_changes_are_coming)
+                )
+            )
 
             (recyclerView.adapter as ItemAdapter).setData(newElements)
             val productDiffUtilCallback = ProductDiffUtilCallback(elements, newElements);
@@ -74,10 +88,20 @@ class MainActivity : AppCompatActivity() {
             elements = newElements
         }, 5000)
     }
+
     private fun fillList(): List<ListItem> {
         val data = mutableListOf<ListItem>()
-        (0..14).forEach { i -> data.add(Song(getString(R.string.no_hay_ley), getString(R.string.kali_uchis)))}
+        (0..14).forEach { i ->
+            data.add(
+                Song(
+                    getString(R.string.no_hay_ley),
+                    getString(R.string.kali_uchis)
+                )
+            )
+        }
         return data
     }
-    fun Int.dpToPx(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()
+
+    fun Int.dpToPx(context: Context): Int =
+        (this * context.resources.displayMetrics.density).toInt()
 }

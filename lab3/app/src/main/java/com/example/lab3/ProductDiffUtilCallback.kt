@@ -2,8 +2,9 @@ package com.example.lab3
 
 import androidx.recyclerview.widget.DiffUtil
 
-class ProductDiffUtilCallback(private val oldList: List<ListItem>,
-                              private val newList: List<ListItem>
+class ProductDiffUtilCallback(
+    private val oldList: List<ListItem>,
+    private val newList: List<ListItem>
 ) :
     DiffUtil.Callback() {
 
@@ -22,9 +23,11 @@ class ProductDiffUtilCallback(private val oldList: List<ListItem>,
             oldItem is Advertisement && newItem is Advertisement -> {
                 true
             }
+
             oldItem is Song && newItem is Song -> {
                 true
             }
+
             else -> false
         }
     }
@@ -36,9 +39,11 @@ class ProductDiffUtilCallback(private val oldList: List<ListItem>,
             oldItem is Advertisement && newItem is Advertisement -> {
                 oldItem.title == newItem.title && oldItem.adType == newItem.adType && oldItem.description == newItem.description
             }
+
             oldItem is Song && newItem is Song -> {
                 oldItem.name == newItem.name && oldItem.description == newItem.description
             }
+
             else -> false
         }
     }
