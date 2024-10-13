@@ -36,7 +36,9 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.androidx.material3.android)
+    val dynamicanimation_version = "1.0.0"
+    implementation("androidx.dynamicanimation:dynamicanimation:$dynamicanimation_version")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
