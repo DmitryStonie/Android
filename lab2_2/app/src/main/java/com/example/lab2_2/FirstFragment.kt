@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import com.example.lab2_2.SecondFragment.Companion.THIRD_FRAGMENT
+import com.example.lab2_2.SecondFragment.Companion.SECOND_FRAGMENT
 
 
 class FirstFragment : Fragment() {
     companion object {
-        const val SECOND_FRAGMENT = "SecondFragment"
+        const val FIRST_FRAGMENT = "FirstFragment"
     }
 
     override fun onCreateView(

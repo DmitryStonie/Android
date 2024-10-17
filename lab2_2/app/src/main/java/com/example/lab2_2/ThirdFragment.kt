@@ -9,11 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
+import com.example.lab2_2.SecondFragment.Companion.SECOND_FRAGMENT
 
 
 class ThirdFragment : Fragment() {
     companion object {
-        const val SECOND_FRAGMENT = "SecondFragment"
+        const val THIRD_FRAGMENT = "ThirdFragment"
     }
 
     override fun onCreateView(
